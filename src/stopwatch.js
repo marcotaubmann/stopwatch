@@ -1,5 +1,5 @@
 angular.module('stopwatchApp', [])
-  .controller('StopwatchController', function($scope, $interval) {
+  .controller('StopwatchController', ['$scope', '$interval', function($scope, $interval) {
     $scope.reverse = false;
     $scope.predicate = 'start';
     $scope.order = 'start';
@@ -74,6 +74,6 @@ angular.module('stopwatchApp', [])
         }
       }
     }
- 
+
     $scope.reset ();
-  });
+  }]);
