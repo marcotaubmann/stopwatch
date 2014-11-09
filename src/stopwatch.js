@@ -1,4 +1,22 @@
 angular.module('stopwatchApp', [])
+
+  .filter ('duration', ['dateFilter', function (dateFilter) {
+    return function (input, format, timezone) {
+      if (typeof input != 'number'){
+        return input;
+      }
+      if (typeof format != 'string') {
+        format = 'HH:mm:ss.sss';
+      }
+      var offsetHours = parseInt (dateFilter (input, 'Z'))/100;
+      var offsetMs = offsetHours * 60 * 60 * 1000;
+      var duration = input - offsetMs;
+      var out = dateFilter (duration, format, timezone);
+
+      return out;
+    };
+  }])
+
   .controller('StopwatchController', ['$scope', '$interval', function($scope, $interval) {
     $scope.reverse = false;
     $scope.predicate = 'start';

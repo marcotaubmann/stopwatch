@@ -13,10 +13,10 @@
         <h1>SW</h1>
         <p>A simple SW.</p>
       </div>
-      
+
       <div ng-controller="StopwatchController" class="container">
         <div class="row">
-          {{displaytime - starttime | date:'HH:mm:ss.sss'}}
+          {{displaytime - starttime | duration}}
         </div>
 
         <div class="row">
@@ -33,7 +33,7 @@
             Lap
           </button>
         </div>
-        
+
         <div ng-if="isRunning || laps.length" class="row">
           <table class="table table-striped table-hover">
             <tr>
@@ -47,8 +47,8 @@
               <td>{{lap.id | number }}</td>
               <td>{{lap.start | date:'HH:mm:ss'}}</td>
               <td>{{lap.stop  | date:'HH:mm:ss'}}</td>
-              <td>{{lap.stop - lap.start | number }}s</td>
-              <td>{{lap.stop - starttime | number }}s</td>
+              <td>{{lap.stop - lap.start | duration }}</td>
+              <td>{{lap.stop - starttime | duration }}</td>
             </tr>
           </table>
         </div>
