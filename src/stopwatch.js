@@ -93,5 +93,21 @@ angular.module('stopwatchApp', [])
       }
     }
 
+    $scope.keyup = function ($event) {
+      if ($event.keyCode == '13') { // enter
+        if ($scope.isRunning) {
+          return $scope.stop ();
+        } else {
+          return $scope.start ();
+        }
+      } else if ($event.keyCode == '32') { //spacebar
+        if ($scope.isRunning) {
+          return $scope.lap ();
+        } else {
+          return $scope.start ();
+        }
+      }
+    }
+
     $scope.reset ();
   }]);
