@@ -8,6 +8,7 @@ A simple stopwatch.
 * i18n
 * <del datetime="2014-11-10T00:58:37 +0100">fix format of lap and total time</del>
 * <del datetime="2014-11-10T02:10:35 +0100">control start, stop and lap via keybord</del>
+* allow resume
 * buildsystem
 * maybe load external libraries from CDN
 * singlefile build with js in script tags
